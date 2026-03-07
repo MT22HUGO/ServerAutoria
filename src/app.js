@@ -1,7 +1,6 @@
-/**
- * Archivo principal que configura Express, monta las rutas y middlewares
- * Escucha en puerto 8080
- */
+
+//Archivo principal que configura Express, monta las rutas y middlewares
+//Escucha en puerto 8080
 
 const express = require('express');
 const cors = require('cors');

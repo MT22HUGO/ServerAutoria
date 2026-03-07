@@ -1,7 +1,6 @@
-/**
- * Configura y exporta instancia Knex para queries a MySQL/MariaDB
- * Usa credenciales del fichero YAML de configuración
- */
+
+//Configura y exporta instancia Knex para queries a MySQL/MariaDB
+//Usa credenciales del fichero YAML de configuración
 
 const knex = require('knex');
 const { config } = require('./configuration');
@@ -16,8 +15,7 @@ const db = knex({
         password: config.db.password, 
         database: config.db.database  
     },
-    useNullAsDefault: true         // Permite valores null por defecto
+    useNullAsDefault: true
 });
 
-// Exporta instancia de Knex para usar en toda la aplicación
 exports.db = db;
