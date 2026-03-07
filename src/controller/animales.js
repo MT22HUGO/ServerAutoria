@@ -1,7 +1,4 @@
-/**
- * Importación de servicios de lógica de negocio para Animales y Habitats.
- * Se asume que estos servicios interactúan directamente con la base de datos.
- */
+
 const { 
     findAllAnimales, 
     animalExistsById, 
@@ -15,10 +12,10 @@ const {
 
 const { habitatExistsById } = require('../service/habitats');
 
-/**
- * Obtiene la lista de todos los animales.
- * Soporta filtrado opcional por nombre mediante query params (?nombre=...).
- */
+
+//Obtiene la lista de todos los animales.
+//Soporta filtrado opcional por nombre
+
 const getAnimales = async (req, res) => {
     const { nombre } = req.query; 
 
@@ -27,14 +24,13 @@ const getAnimales = async (req, res) => {
     res.status(200).json(animales);
 };
 
-/**
- * Obtiene un animal específico por su ID único.
- * Valida primero la existencia para evitar errores de búsqueda.
- */
+
+//Obtiene un animal específico por su ID único.
+//Valida primero la existencia para evitar errores de búsqueda.
+
 const getAnimal = async (req, res) => {
     const { id } = req.params;
 
-    // Validación de existencia (Early return si no existe)
     if (!await animalExistsById(id)) {
         return res.status(404).json({
             code: 404,
@@ -47,11 +43,11 @@ const getAnimal = async (req, res) => {
     res.status(200).json(animal);
 };
 
-/**
- * Crea un nuevo registro de animal.
- * - Valida que el nombre sea único (Conflict 409).
- * - Valida que el habitat_id sea válido si se proporciona (Not Found 404).
- */
+
+//Crea un nuevo registro de animal.
+// Valida que el nombre sea único.
+// Valida que el habitat_id sea válido si se proporciona.
+
 const postAnimal = async (req, res) => {
     const { nombre, especie, categoria, edad, estado_salud, descripcion, imagen_url, habitat_id } = req.body;
 
@@ -78,7 +74,7 @@ const postAnimal = async (req, res) => {
         especie, 
         categoria, 
         edad, 
-        estado_salud || 'Saludable', // Valor por defecto si no se envía
+        estado_salud || 'Saludable',
         descripcion, 
         imagen_url, 
         habitat_id
@@ -87,10 +83,10 @@ const postAnimal = async (req, res) => {
     res.status(201).json(newAnimal);
 };
 
-/**
- * Actualiza los datos de un animal existente.
- * Requiere el ID por parámetro y los nuevos datos en el cuerpo de la petición.
- */
+
+//Actualiza los datos de un animal existente.
+//Requiere el ID por parámetro y los nuevos datos en el cuerpo de la petición.
+
 const putAnimal = async (req, res) => {
     const { id } = req.params;
     
@@ -115,12 +111,12 @@ const putAnimal = async (req, res) => {
     }
 
     await modifyAnimal(id, nombre, especie, categoria, edad, estado_salud, descripcion, imagen_url, habitat_id);
-    res.status(204).end(); // 204 No Content: Actualización exitosa sin cuerpo de respuesta
+    res.status(204).end();
 };
 
-/**
- * Elimina un animal del sistema.
- */
+
+//Elimina un animal del sistema.
+
 const deleteAnimal = async (req, res) => {
     const { id } = req.params;
     
@@ -138,8 +134,6 @@ const deleteAnimal = async (req, res) => {
 
 
 //Recupera todos los animales que pertenecen a un hábitat específico.
-//Útil para vistas filtradas (ej: "Ver todos los animales de la Sabana").
-
 const getAnimalesByHabitat = async (req, res) => {
     const { id: habitat_id } = req.params;
     
@@ -156,7 +150,6 @@ const getAnimalesByHabitat = async (req, res) => {
     res.status(200).json(animales);
 };
 
-// Exportación de controladores para ser usados en el router
 module.exports = {
     getAnimales,
     getAnimal,

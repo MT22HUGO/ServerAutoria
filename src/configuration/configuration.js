@@ -1,7 +1,6 @@
-/**
- * Gestiona la carga de ficheros YAML de configuración
- * Permite especificar el fichero mediante argumento CLI: --config config.local.yaml
- */
+
+//Gestiona la carga de ficheros YAML de configuración
+//Permite especificar el fichero mediante argumento CLI: --config config.local.yaml
 
 const yaml = require('js-yaml');
 const fs = require('fs');

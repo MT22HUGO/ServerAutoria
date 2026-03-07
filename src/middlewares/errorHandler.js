@@ -1,7 +1,7 @@
-/**
- * Middleware global que captura excepciones no controladas
- * Debe registrarse al final de la stack de middlewares
- */
+
+//Middleware global que captura excepciones no controladas
+//Debe registrarse al final de la stack de middlewares
+ 
 
 const errorHandler = (err, req, res, next) => {
     // Loguea el error completo en consola para debugging

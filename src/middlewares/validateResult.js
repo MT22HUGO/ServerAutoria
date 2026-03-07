@@ -1,7 +1,6 @@
-/**
- * Procesa errores de validación de express-validator
- * Se usa en las cadenas de validadores de POST y PUT
- */
+
+//Procesa errores de validación de express-validator
+//Se usa en las cadenas de validadores de POST y PUT
 
 const { validationResult } = require('express-validator');
 

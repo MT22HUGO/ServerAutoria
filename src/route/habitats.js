@@ -1,7 +1,6 @@
-/**
- * Define todos los endpoints para el recurso /habitats
- * Monta validadores antes de POST y PUT
- */
+
+//Define todos los endpoints para el recurso /habitats
+//Monta validadores antes de POST y PUT
 
 const express = require('express');
 const { 

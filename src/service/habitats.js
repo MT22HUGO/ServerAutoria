@@ -1,7 +1,5 @@
-/**
- * Capa de acceso a datos (Data Access Layer) para tabla habitats
- * Contiene todas las queries Knex para operaciones CRUD
- */
+
+//Capa de acceso a datos para tabla habitats
 
 const { db } = require('../configuration/database');
 
@@ -30,7 +28,7 @@ const habitatExistsById = async (id) => {
     return habitat !== undefined;
 };
 
-// Valida si existe otro habitat con el mismo nombre (evita duplicados)
+// Valida si existe otro habitat con el mismo nombre
 const habitatExistsByName = async (nombre) => {
     const habitat = await db('habitats').where({ nombre }).first();
     return habitat !== undefined;
@@ -44,7 +42,6 @@ const addHabitat = async (nombre, descripcion, clima, imagen_url) => {
         clima,
         imagen_url
     });
-    // Retorna el habitat completo
     return await findHabitat(id);
 };
 
@@ -64,7 +61,6 @@ const removeHabitat = async (id) => {
 };
 
 // Cuenta cuantos animales hay en un habitat especifico
-// Se usa para validar si se puede eliminar el habitat
 const countAnimalesInHabitat = async (habitat_id) => {
     const result = await db('animales')
         .where({ habitat_id })

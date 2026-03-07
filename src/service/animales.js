@@ -32,7 +32,7 @@ const findAnimal = async (id) => {
             'habitats.clima as habitat_clima'
         )
         .where('animales.id', id)
-        .first(); // Retorna el primer resultado o undefined
+        .first();
 };
 
 // Valida si existe un animal con un ID especifico
@@ -41,7 +41,7 @@ const animalExistsById = async (id) => {
     return animal !== undefined;
 };
 
-// Valida si existe otro animal con el mismo nombre (evita duplicados)
+// Valida si existe otro animal con el mismo nombre
 const animalExistsByName = async (nombre) => {
     const animal = await db('animales').where({ nombre }).first();
     return animal !== undefined;
