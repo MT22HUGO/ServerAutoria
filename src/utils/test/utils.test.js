@@ -33,7 +33,7 @@ describe('Tests de Utilidades - Validación de Descripciones', () => {
         });
 
         test('Debe permitir límites personalizados', () => {
-            expect(validateDescriptionLength('texto corto', 10)).toBe(true);
+            expect(validateDescriptionLength('corto', 10)).toBe(true);
             expect(validateDescriptionLength('texto muy largo', 5)).toBe(false);
         });
     });
