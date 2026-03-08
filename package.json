@@ -1,7 +1,12 @@
 {
     "name": "zoo-backend",
     "scripts": {
-        "start": "node src/app.js --config config.local.yaml"
+        "start": "node src/app.js --config config.local.yaml",
+        "test": "jest",
+        "test:unit": "jest test/unit --coverage",
+        "test:integration": "jest test/integration",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage --coverageReporters=text-lcov > coverage/lcov.info"
     },
     "dependencies": {
         "cors": "^2.8.6",
@@ -11,5 +16,25 @@
         "knex": "^3.1.0",
         "mysql": "^2.18.1",
         "yargs": "17.0.0"
+    },
+    "devDependencies": {
+        "jest": "^30.2.0",
+        "supertest": "^7.2.2"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "collectCoverageFrom": [
+            "controller/**/*.js",
+            "service/**/*.js",
+            "validators/**/*.js",
+            "!**/node_modules/**"
+        ],
+        "coveragePathIgnorePatterns": [
+            "/node_modules/",
+            "/test/"
+        ],
+        "testMatch": [
+            "**/test/**/*.test.js"
+        ]
     }
 }

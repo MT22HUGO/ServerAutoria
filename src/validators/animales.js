@@ -1,4 +1,3 @@
-
 // Usa express-validator para validar datos en POST y PUT
 // Se monta como middleware en las rutas correspondientes
 
