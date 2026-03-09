@@ -121,6 +121,56 @@
             "method": "DELETE",
             "url": "http://localhost:8080/animales/4"
           }
+        },
+        {
+          "name": "Crear animal duplicado (Error 409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code es 409 (Conflict)', () => pm.response.to.have.status(409));",
+                  "pm.test('Mensaje indica duplicado', () => pm.expect(pm.response.json().message).to.include('ya existe'));",
+                  "pm.test('Estructura de error correcta', () => pm.expect(pm.response.json()).to.have.property('code').and.equal(409));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Simba\",\n    \"especie\": \"León africano\",\n    \"categoria\": \"Mamífero\",\n    \"edad\": 5,\n    \"estado_salud\": \"Saludable\",\n    \"descripcion\": \"Intento de duplicado\",\n    \"imagen_url\": \"https://example.com/leon.jpg\",\n    \"habitat_id\": 1\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/animales"
+          }
+        },
+        {
+          "name": "Actualizar animal a nombre duplicado (Error 409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code es 409', () => pm.response.to.have.status(409));",
+                  "pm.test('Mensaje de conflicto', () => pm.expect(pm.response.json().title).to.eql('conflict'));",
+                  "pm.test('Error indica nombre existente', () => pm.expect(pm.response.json().message).to.include('ya existe'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Lola\",\n    \"especie\": \"Guacamayo azul\",\n    \"categoria\": \"Ave\",\n    \"edad\": 3\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/animales/1"
+          }
         }
       ]
     },
@@ -250,6 +300,56 @@
           "request": {
             "method": "DELETE",
             "url": "http://localhost:8080/habitats/1"
+          }
+        },
+        {
+          "name": "Crear hábitat duplicado (Error 409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code es 409 (Conflict)', () => pm.response.to.have.status(409));",
+                  "pm.test('Respuesta es JSON', () => pm.expect(pm.response.json()).to.be.an('object'));",
+                  "pm.test('Código de error correcto', () => pm.expect(pm.response.json().code).to.eql(409));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Sabana Africana\",\n    \"descripcion\": \"Intento de duplicado\",\n    \"clima\": \"Tropical seco\",\n    \"imagen_url\": \"http://img.com/sabana.jpg\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/habitats"
+          }
+        },
+        {
+          "name": "Actualizar hábitat a nombre duplicado (Error 409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code es 409', () => pm.response.to.have.status(409));",
+                  "pm.test('Mensaje de error presente', () => pm.expect(pm.response.json()).to.have.property('message'));",
+                  "pm.test('Title es conflict', () => pm.expect(pm.response.json().title).to.eql('conflict'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Amazonía\",\n    \"descripcion\": \"Intento de duplicado\",\n    \"clima\": \"Tropical húmedo\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/habitats/3"
           }
         }
       ]

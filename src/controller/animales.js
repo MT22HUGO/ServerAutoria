@@ -11,6 +11,7 @@ const {
 } = require('../service/animales');
 
 const { habitatExistsById } = require('../service/habitats');
+const { db } = require('../configuration/database');
 
 
 //Obtiene la lista de todos los animales.
@@ -101,7 +102,19 @@ const putAnimal = async (req, res) => {
 
     const { nombre, especie, categoria, edad, estado_salud, descripcion, imagen_url, habitat_id } = req.body;
 
-    // 2. Si se intenta cambiar el hábitat, verificar que el nuevo ID sea válido
+    // 2. Validar que el nombre sea único (si se intenta cambiar)
+    if (nombre) {
+        const existingAnimal = await db('animales').where('nombre', nombre).first();
+        if (existingAnimal && existingAnimal.id !== parseInt(id)) {
+            return res.status(409).json({
+                code: 409,
+                title: 'conflict',
+                message: 'ya existe un animal con ese nombre'
+            });
+        }
+    }
+
+    // 3. Si se intenta cambiar el hábitat, verificar que el nuevo ID sea válido
     if (habitat_id && !await habitatExistsById(habitat_id)) {
         return res.status(404).json({
             code: 404,
