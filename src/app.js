@@ -2,6 +2,8 @@
 //Archivo principal que configura Express, monta las rutas y middlewares
 //Escucha en puerto 8080
 
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const animalesRoute = require('./route/animales');
