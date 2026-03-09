@@ -1,7 +1,7 @@
 {
     "name": "zoo-backend",
     "scripts": {
-        "start": "node src/app.js --config config.local.yaml",
+        "start": "node src/app.js",
         "test": "jest",
         "test:unit": "jest test/unit --coverage",
         "test:integration": "jest test/integration",
@@ -10,11 +10,13 @@
     },
     "dependencies": {
         "cors": "^2.8.6",
+        "dotenv": "^17.3.1",
         "express": "^5.1.0",
         "express-validator": "^7.0.0",
         "js-yaml": "4.1.1",
         "knex": "^3.1.0",
         "mysql": "^2.18.1",
+        "mysql2": "^3.19.0",
         "yargs": "17.0.0"
     },
     "devDependencies": {
