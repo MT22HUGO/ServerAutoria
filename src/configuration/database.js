@@ -1,21 +1,21 @@
+const knex = require("knex");
 
-//Configura y exporta instancia Knex para queries a MySQL/MariaDB
-//Usa credenciales del fichero YAML de configuración
-
-const knex = require('knex');
-const { config } = require('./configuration');
-
-// Crea instancia Knex con credenciales de configuración
 const db = knex({
-    client: 'mysql',              
-    connection: {
-        host: config.db.host,     
-        port: config.db.port,     
-        user: config.db.user,      
-        password: config.db.password, 
-        database: config.db.database  
-    },
-    useNullAsDefault: true
+  client: "mysql2",
+  connection: {
+    host: process.env.MARIADB_HOST,
+    port: process.env.MARIADB_PORT,
+    user: process.env.MARIADB_USER,
+    password: process.env.MARIADB_PASSWORD,
+    database: process.env.MARIADB_NAME,
+  },
+  pool: {
+    min: 1,
+    max: 3,
+    acquireTimeoutMillis: 30000,
+    idleTimeoutMillis: 30000,
+  },
+  useNullAsDefault: true,
 });
 
 exports.db = db;
