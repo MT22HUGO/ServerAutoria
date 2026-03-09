@@ -1,6 +1,6 @@
 CREATE TABLE habitats (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
+    nombre VARCHAR(100) NOT NULL UNIQUE,
     descripcion TEXT,
     clima VARCHAR(50),
     imagen_url VARCHAR(255)
@@ -8,7 +8,7 @@ CREATE TABLE habitats (
 
 CREATE TABLE animales (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
+    nombre VARCHAR(100) NOT NULL UNIQUE,
     especie VARCHAR(100) NOT NULL,
     categoria ENUM('Mamífero', 'Ave', 'Reptil', 'Anfibio', 'Pez') NOT NULL,
     edad INT UNSIGNED,

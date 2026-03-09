@@ -8,8 +8,7 @@ const {
     getAnimal,           
     postAnimal,          
     putAnimal,           
-    deleteAnimal,        
-    getAnimalesByHabitat 
+    deleteAnimal
 } = require('../controller/animales');
 
 const { validateAnimal } = require('../validators/animales');
@@ -17,8 +16,6 @@ const { validateAnimal } = require('../validators/animales');
 const router = express.Router();
 
 router.get('/', getAnimales);
-
-router.get('/habitat/:id', getAnimalesByHabitat);
 
 router.get('/:id', getAnimal);
 

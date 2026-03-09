@@ -69,6 +69,12 @@
           ],
           "request": {
             "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"nombre\": \"Dumbo\",\n    \"especie\": \"Elefante africano\",\n    \"categoria\": \"Mamífero\",\n    \"edad\": 12,\n    \"estado_salud\": \"Saludable\",\n    \"descripcion\": \"Elefante africano macho de gran tamaño\",\n    \"imagen_url\": \"https://example.com/elefante.jpg\",\n    \"habitat_id\": 1\n}",
@@ -94,6 +100,12 @@
           ],
           "request": {
             "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"nombre\": \"Simba Rey\",\n    \"especie\": \"León africano\",\n    \"categoria\": \"Mamífero\",\n    \"edad\": 6,\n    \"habitat_id\": 1\n}",
@@ -181,6 +193,30 @@
           }
         },
         {
+          "name": "Obtener hábitat con sus animales",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code es 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Respuesta contiene datos del hábitat', () => {",
+                  "    const habitat = pm.response.json();",
+                  "    pm.expect(habitat).to.have.property('id');",
+                  "    pm.expect(habitat).to.have.property('nombre');",
+                  "});",
+                  "pm.test('Incluye array de animales', () => pm.expect(pm.response.json()).to.have.property('animales').that.is.an('array'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/habitats/1/animales"
+          }
+        },
+        {
           "name": "Crear nuevo hábitat",
           "event": [
             {
@@ -197,6 +233,12 @@
           ],
           "request": {
             "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"nombre\": \"Jungla\",\n    \"descripcion\": \"Zona tropical densa\",\n    \"clima\": \"Húmedo\",\n    \"imagen_url\": \"http://img.com/jungla.jpg\"\n}",
@@ -222,6 +264,12 @@
           ],
           "request": {
             "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"nombre\": \"Sabana Actualizada\",\n    \"descripcion\": \"Nueva descripción\",\n    \"clima\": \"Cálido\"\n}",

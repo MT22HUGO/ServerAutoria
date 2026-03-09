@@ -15,6 +15,8 @@ const {
     countAnimalesInHabitat    
 } = require('../service/habitats');
 
+const { db } = require('../configuration/database');
+
 
 // Obtiene listado de todos los habitats
 const getHabitats = async (req, res) => {
@@ -69,6 +71,19 @@ const putHabitat = async (req, res) => {
     }
 
     const { nombre, descripcion, clima, imagen_url } = req.body;
+    
+    // Validar que el nombre sea único (si se intenta cambiar)
+    if (nombre) {
+        const existingHabitat = await db('habitats').where('nombre', nombre).first();
+        if (existingHabitat && existingHabitat.id !== parseInt(id)) {
+            return res.status(409).json({
+                code: 409,
+                title: 'conflict',
+                message: 'ya existe un habitat con ese nombre'
+            });
+        }
+    }
+    
     await modifyHabitat(id, nombre, descripcion, clima, imagen_url);
     res.status(204).end();
 };
