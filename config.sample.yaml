@@ -1,9 +1,0 @@
-db:
-  host: localhost
-  port: 3306
-  user: user
-  password: password
-  database: cities
-
-service:
-  port: 8080
