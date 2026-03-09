@@ -82,18 +82,6 @@ const removeAnimal = async (id) => {
     await db('animales').where({ id }).del();
 };
 
-// Obtiene todos los animales que pertenecen a un habitat especifico
-const findAnimalesByHabitat = async (habitat_id) => {
-    return await db('animales')
-        .join('habitats', 'animales.habitat_id', 'habitats.id')
-        .select(
-            'animales.*',
-            'habitats.nombre as habitat_nombre',
-            'habitats.clima as habitat_clima'
-        )
-        .where('animales.habitat_id', habitat_id);
-};
-
 module.exports = {
     findAllAnimales,
     findAnimal,
@@ -101,6 +89,5 @@ module.exports = {
     animalExistsByName,
     addAnimal,
     modifyAnimal,
-    removeAnimal,
-    findAnimalesByHabitat
+    removeAnimal
 };

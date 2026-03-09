@@ -6,8 +6,7 @@ const {
     modifyAnimal, 
     addAnimal, 
     removeAnimal, 
-    findAnimal,
-    findAnimalesByHabitat
+    findAnimal
 } = require('../service/animales');
 
 const { habitatExistsById } = require('../service/habitats');
@@ -145,29 +144,10 @@ const deleteAnimal = async (req, res) => {
     res.status(204).end();
 };
 
-
-//Recupera todos los animales que pertenecen a un hábitat específico.
-const getAnimalesByHabitat = async (req, res) => {
-    const { id: habitat_id } = req.params;
-    
-    // Validación de seguridad para asegurar que el hábitat consultado existe
-    if (!await habitatExistsById(habitat_id)) {
-        return res.status(404).json({
-            code: 404,
-            title: 'not-found',
-            message: 'el habitat no existe'
-        });
-    }
-    
-    const animales = await findAnimalesByHabitat(habitat_id);
-    res.status(200).json(animales);
-};
-
 module.exports = {
     getAnimales,
     getAnimal,
     postAnimal,
     putAnimal,
-    deleteAnimal,
-    getAnimalesByHabitat
+    deleteAnimal
 };
