@@ -1,81 +1,82 @@
-# 🦁 FaunaPark API
-
 <div align="center">
-
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-5.1.0-black.svg)](https://expressjs.com/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0+-blue.svg)](https://www.mysql.com/)
-[![Jest](https://img.shields.io/badge/Jest-Testing-red.svg)](https://jestjs.io/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-> **Sistema de gestión integral para parques zoológicos** - Una API REST moderna, escalable y bien documentada para administrar animales, hábitats y operaciones del zoológico.
-
-[Características](#características) • [Instalación](#instalación) • [Uso](#uso) • [API](#documentación-api) • [Testing](#testing) • [Contribuir](#contributing)
-
+  <h1>🦁 FaunaPark API</h1>
+  
+  ### Sistema de gestión integral para parques zoológicos
+  
+  [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+  [![Express](https://img.shields.io/badge/Express-5.1.0-black.svg)](https://expressjs.com/)
+  [![MySQL](https://img.shields.io/badge/MySQL-8.0+-blue.svg)](https://www.mysql.com/)
+  [![Jest](https://img.shields.io/badge/Jest-Testing-red.svg)](https://jestjs.io/)
+  [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED.svg)](https://www.docker.com/)
+  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+  
+  <p align="center">
+    <strong>Una API REST moderna, escalable y bien documentada</strong> para administrar animales, hábitats y operaciones del zoológico con arquitectura en capas y testing completo.
+  </p>
 </div>
 
 ---
 
-## 📋 Tabla de Contenidos
+## 📋 Descripción
 
-- [Características](#características)
-- [Requisitos Previos](#requisitos-previos)
-- [Instalación](#instalación)
-- [Configuración](#configuración)
-- [Uso](#uso-rápido)
-- [Documentación API](#documentación-api)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Testing](#testing)
-- [Docker](#docker)
-- [Contribuir](#contributing)
+**FaunaPark API** es una plataforma backend completa para la gestión integral de zoológicos y parques de animales, desarrollada con las últimas tecnologías de Node.js. La API proporciona endpoints RESTful robuostos para explorar, crear, actualizar y eliminar información sobre animales y sus hábitats, con validaciones avanzadas y manejo de errores centralizado.
 
----
+El proyecto sigue una arquitectura profesional en capas (Controllers → Services → Database) garantizando mantenibilidad, escalabilidad y facilidad de testing.
 
 ## ✨ Características
 
-- 🐾 **Gestión de Animales** - CRUD completo con validaciones avanzadas
-- 🏠 **Gestión de Hábitats** - Control de espacios y recursos
-- 🔒 **Validación de Datos** - Usando express-validator con esquemas complejos
-- 📊 **Arquitectura en Capas** - Controllers → Services → Database
-- 🧪 **Testing Completo** - Unitario e integración con Jest
-- 🐳 **Docker Support** - Despliegue fácil con Docker Compose
-- 📝 **Logging Avanzado** - Seguimiento de errores y eventos
-- ⚡ **Performance** - Optimizado con Knex.js y pool de conexiones
-- 🌐 **CORS Habilitado** - Listo para frontend integrado
+- 🐾 **Gestión de Animales** - CRUD completo con validaciones avanzadas y filtrados
+- 🏠 **Gestión de Hábitats** - Control integral de espacios y recursos disponibles
+- 🔒 **Validación de Datos** - express-validator con esquemas complejos y personalizados
+- 📊 **Arquitectura en Capas** - Separación clara: Controllers → Services → Database
+- 🧪 **Testing Completo** - Unitario e integración con Jest y Supertest
+- 🐳 **Docker Support** - Despliegue containerizado con Docker Compose
+- ⚡ **Performance Optimizado** - Knex.js con pool de conexiones a BD
+- 🌐 **CORS Habilitado** - Listo para integración con frontend
+- 📝 **Manejo de Errores** - Gestión centralizada con respuestas consistentes
+- 📚 **Documentación Completa** - Ejemplos de uso y guías de integración
 
----
+## 🛠️ Tecnologías Utilizadas
 
-## 🔧 Requisitos Previos
+- **[Node.js 18+](https://nodejs.org/)** - Runtime JavaScript
+- **[Express 5.1](https://expressjs.com/)** - Framework web moderno
+- **[MySQL 8.0+](https://www.mysql.com/)** - Base de datos relacional
+- **[Knex.js 3.1](http://knexjs.org/)** - Query builder SQL
+- **[express-validator 7.0](https://express-validator.github.io/)** - Validación de datos
+- **[Jest 30.2](https://jestjs.io/)** - Testing framework
+- **[Supertest 7.2](https://github.com/visionmedia/supertest)** - Testing HTTP
+- **[Docker](https://www.docker.com/)** - Containerización
+- **[CORS 2.8](https://expressjs.com/en/resources/middleware/cors.html)** - Cross-Origin Resource Sharing
+
+## 📦 Requisitos Previos
 
 Antes de comenzar, asegúrate de tener instalado:
 
-| Requisito | Versión | Descarga |
-|-----------|---------|----------|
+| Requisito | Versión | Enlace |
+|-----------|---------|--------|
 | **Node.js** | 18+ | [nodejs.org](https://nodejs.org/) |
 | **npm** | 9+ | Incluido con Node.js |
 | **MySQL** | 8.0+ | [mysql.com](https://www.mysql.com/) |
 | **Docker** (opcional) | Latest | [docker.com](https://www.docker.com/) |
 
----
+## 🚀 Instalación Rápida
 
-## 🚀 Instalación
-
-### Paso 1: Clonar el Repositorio
+### 1. Clona el Repositorio
 
 ```bash
 git clone https://github.com/tuusuario/faunapark-api.git
 cd faunapark-api
 ```
 
-### Paso 2: Instalar Dependencias
+### 2. Instala las Dependencias
 
 ```bash
 npm install
 ```
 
-### Paso 3: Configurar Variables de Entorno
+### 3. Configura las Variables de Entorno
 
-Crea un archivo `.env` en la raíz del proyecto:
+Crea un archivo `.env` en la raíz:
 
 ```env
 # Base de Datos
@@ -85,7 +86,7 @@ DB_PASSWORD=tu_contraseña
 DB_NAME=faunapark
 DB_PORT=3306
 
-# Server
+# Servidor
 NODE_ENV=development
 PORT=8080
 LOG_LEVEL=debug
@@ -94,60 +95,32 @@ LOG_LEVEL=debug
 CORS_ORIGIN=http://localhost:3000
 ```
 
-### Paso 4: Inicializar la Base de Datos
+> 💡 Copia `.env.example` como base: `cp .env.example .env`
+
+### 4. Inicializa la Base de Datos
 
 ```bash
-# Con MySQL corriendo, ejecuta:
 mysql -u root -p < db/init.sql
 ```
 
-### Paso 5: Iniciar el Servidor
+### 5. Inicia el Servidor
 
 ```bash
 npm start
 ```
 
-✅ El servidor estará disponible en `http://localhost:8080`
+✅ **La API estará disponible en** `http://localhost:8080`
 
----
+## 🏗️ Uso Rápido
 
-## ⚙️ Configuración
-
-### Base de Datos
-
-El archivo `src/configuration/database.js` configura la conexión:
-
-```javascript
-const knex = require('knex')({
-  client: 'mysql2',
-  connection: {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT || 3306
-  }
-});
-```
-
-### Middlewares
-
-- **CORS** - Permite solicitudes cross-origin
-- **Express JSON** - Parser de JSON automático
-- **Error Handler** - Gestión centralizada de errores
-
----
-
-## 💡 Uso Rápido
-
-### Ejemplo Básico: Obtener Todos los Animales
+### Obtener Todos los Animales
 
 ```bash
 curl -X GET http://localhost:8080/animales \
   -H "Content-Type: application/json"
 ```
 
-**Respuesta Exitosa (200):**
+**Respuesta (200):**
 ```json
 {
   "status": "success",
@@ -165,7 +138,7 @@ curl -X GET http://localhost:8080/animales \
 }
 ```
 
-### Ejemplo: Crear un Nuevo Animal
+### Crear un Nuevo Animal
 
 ```bash
 curl -X POST http://localhost:8080/animales \
@@ -179,7 +152,7 @@ curl -X POST http://localhost:8080/animales \
   }'
 ```
 
-**Respuesta Exitosa (201):**
+**Respuesta (201):**
 ```json
 {
   "status": "success",
@@ -188,92 +161,47 @@ curl -X POST http://localhost:8080/animales \
     "id": 2,
     "nombre": "Simba",
     "especie": "León",
-    "edad": 3,
-    "habitat_id": 1,
-    "descripcion": "León joven macho",
-    "estado": "activo"
+    "edad": 3
   }
 }
 ```
 
----
+## 📚 Documentación API Completa
 
-## 📚 Documentación API
+### 🐾 Endpoints de Animales
 
-### 🐾 Animales
+#### `GET /animales` - Listar Animales
 
-#### GET /animales
-Obtiene todos los animales registrados con opcionalmente filtrados.
+Obtiene todos los animales registrados con opciones de filtrado y paginación.
 
-```bash
-# Listar todos
-GET /animales
-
-# Filtrar por especie
-GET /animales?especie=León
-
-# Paginar
-GET /animales?page=1&limit=10
-```
-
+**Parámetros de Query:**
 | Parámetro | Tipo | Descripción |
 |-----------|------|-------------|
 | `especie` | string | Filtrar por especie |
 | `page` | number | Número de página (default: 1) |
-| `limit` | number | Elementos por página (default: 20) |
+| `limit` | number | Resultados por página (default: 20) |
 | `estado` | string | Filtrar por estado (activo/inactivo) |
 
-#### GET /animales/:id
-Obtiene los detalles de un animal específico.
+#### `GET /animales/:id` - Obtener Animal
+
+Obtiene los detalles completos de un animal específico.
 
 ```bash
 GET /animales/1
 ```
 
-**Respuesta:**
-```json
-{
-  "id": 1,
-  "nombre": "Leo",
-  "especie": "León",
-  "edad": 5,
-  "habitat_id": 1,
-  "descripcion": "Macho adulto",
-  "estado": "activo",
-  "fecha_entrada": "2020-06-15",
-  "peso": 190
-}
-```
+#### `POST /animales` - Crear Animal
 
-#### POST /animales
-Crea un nuevo animal.
+Crea un nuevo registro de animal.
 
-```bash
-POST /animales
-Content-Type: application/json
+**Validaciones requeridas:**
+- `nombre`: string (3-100 caracteres, solo letras)
+- `especie`: string (alfabético)
+- `edad`: number (0-150 años)
+- `habitat_id`: number (debe existir en BD)
+- `descripcion`: string (opcional, max 500 caracteres)
 
-{
-  "nombre": "Elefanta",
-  "especie": "Elefante",
-  "edad": 8,
-  "habitat_id": 2,
-  "descripcion": "Hembra adulta de gran tamaño",
-  "peso": 4500
-}
-```
-
-**Validaciones:**
-```javascript
-// Campos requeridos
-- nombre: string (3-100 caracteres)
-- especie: string (alfabético)
-- edad: number (0-150)
-- habitat_id: number (existe en BD)
-- descripcion: string (opcional, max 500 caracteres)
-```
-
-#### PUT /animales/:id
-Actualiza un animal existente.
+#### `PUT /animales/:id` - Actualizar Animal
 
 ```bash
 PUT /animales/1
@@ -281,57 +209,27 @@ Content-Type: application/json
 
 {
   "edad": 6,
-  "descripcion": "Ahora tiene 6 años"
+  "descripcion": "Descripción actualizada"
 }
 ```
 
-#### DELETE /animales/:id
-Elimina un animal del sistema.
+#### `DELETE /animales/:id` - Eliminar Animal
 
 ```bash
 DELETE /animales/1
 ```
 
-**Respuesta:**
-```json
-{
-  "status": "success",
-  "message": "Animal eliminado correctamente"
-}
-```
-
 ---
 
-### 🏠 Hábitats
+### 🏠 Endpoints de Hábitats
 
-#### GET /habitats
-Obtiene todos los hábitats disponibles.
+#### `GET /habitats` - Listar Hábitats
 
 ```bash
 GET /habitats
 ```
 
-**Respuesta:**
-```json
-{
-  "status": "success",
-  "data": [
-    {
-      "id": 1,
-      "nombre": "Sabana Africana",
-      "tipo": "Exterior",
-      "area_m2": 5000,
-      "capacidad": 15,
-      "animales_actuales": 3,
-      "temperatura_ideal": 28,
-      "descripcion": "Hábitat para felinos y herbívoros africanos"
-    }
-  ]
-}
-```
-
-#### POST /habitats
-Crea un nuevo hábitat.
+#### `POST /habitats` - Crear Hábitat
 
 ```bash
 POST /habitats
@@ -347,8 +245,7 @@ Content-Type: application/json
 }
 ```
 
-#### PUT /habitats/:id
-Actualiza información del hábitat.
+#### `PUT /habitats/:id` - Actualizar Hábitat
 
 ```bash
 PUT /habitats/1
@@ -360,52 +257,45 @@ Content-Type: application/json
 }
 ```
 
-#### DELETE /habitats/:id
-Elimina un hábitat.
+#### `DELETE /habitats/:id` - Eliminar Hábitat
 
 ```bash
 DELETE /habitats/1
 ```
 
----
-
-## 📊 Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 ```
 faunapark-api/
-├── 📁 src/
-│   ├── app.js                          # Punto de entrada
-│   ├── 📁 configuration/
-│   │   └── database.js                 # Configuración Knex
-│   ├── 📁 controller/
-│   │   ├── animales.js                 # Lógica de manejo de animales
-│   │   └── habitats.js                 # Lógica de manejo de hábitats
-│   ├── 📁 service/
-│   │   ├── animales.js                 # Servicios de negocio
+├── src/
+│   ├── app.js                          # Punto de entrada Express
+│   ├── configuration/
+│   │   └── database.js                 # Configuración Knex.js
+│   ├── controller/
+│   │   ├── animales.js                 # Controlador de animales
+│   │   └── habitats.js                 # Controlador de hábitats
+│   ├── service/
+│   │   ├── animales.js                 # Lógica de negocio animales
+│   │   └── habitats.js                 # Lógica de negocio hábitats
+│   ├── route/
+│   │   ├── animales.js                 # Rutas REST animales
+│   │   └── habitats.js                 # Rutas REST hábitats
+│   ├── validators/
+│   │   ├── animales.js                 # Esquemas express-validator
 │   │   └── habitats.js
-│   ├── 📁 route/
-│   │   ├── animales.js                 # Rutas de animales
-│   │   └── habitats.js                 # Rutas de hábitats
-│   ├── 📁 validators/
-│   │   ├── animales.js                 # Esquemas de validación
-│   │   └── habitats.js
-│   ├── 📁 middlewares/
-│   │   ├── errorHandler.js             # Manejo global de errores
+│   ├── middlewares/
+│   │   ├── errorHandler.js             # Manejo centralizado errores
 │   │   └── validateResult.js           # Validación de resultados
-│   └── 📁 utils/
-│       ├── animalname.utils.js         # Utilidades nombres
-│       ├── description.utils.js        # Utilidades descripciones
-│       ├── maxage.utils.js             # Validaciones edad
-│       └── 📁 test/
-│           ├── animalname.utils.test.js
-│           ├── description.utils.test.js
-│           └── maxage.utils.test.js
-├── 📁 db/
-│   └── init.sql                        # Script de inicialización
-├── 📄 docker-compose.dev.yaml          # Composición Docker
-├── 📄 package.json
-└── 📄 .env.example
-
+│   └── utils/
+│       ├── animalname.utils.js
+│       ├── description.utils.js
+│       ├── maxage.utils.js
+│       └── test/                       # Tests unitarios
+├── db/
+│   └── init.sql                        # Script inicialización BD
+├── docker-compose.dev.yaml             # Docker Compose desarrollo
+├── package.json
+└── README.md                           # Este archivo
 ```
 
 ### Flujo de Datos
@@ -413,60 +303,58 @@ faunapark-api/
 ```
 HTTP Request
     ↓
-Route (route/animales.js)
+Route Handler
     ↓
-Middleware Validator (validateResult.js)
+Middleware de Validación
     ↓
-Controller (controller/animales.js) ← Valida y orquesta
+Controller (orquestación)
     ↓
-Service (service/animales.js) ← Lógica de negocio
+Service (lógica de negocio)
     ↓
-Database (knex) ← Consultas SQL
+Database Query (Knex.js)
     ↓
-Response JSON
+JSON Response
 ```
-
----
 
 ## 🧪 Testing
 
-### Ejecutar Todas las Pruebas
+### Ejecutar Todos los Tests
 
 ```bash
 npm test
 ```
 
-### Pruebas Unitarias
+### Tests Unitarios con Cobertura
 
 ```bash
 npm run test:unit
 ```
 
-Genera cobertura de:
+Genera cobertura para:
 - Controllers
 - Services
 - Validators
+- Utils
 
-### Pruebas en Modo Watch
+### Modo Watch (Desarrollo)
 
 ```bash
 npm run test:watch
 ```
 
-Ideal para desarrollo interactivo.
+Reejuta tests automáticamente al guardar cambios.
 
-### Cobertura de Tests
+### Cobertura Detallada
 
 ```bash
 npm run test:coverage
 ```
 
-Genera reporte detallado en `coverage/lcov.info`
+Genera reporte en `coverage/lcov.info`
 
-### Ejemplo de Test
+### Ejemplo de Test Unitario
 
 ```javascript
-// src/utils/test/animalname.utils.test.js
 describe('Animal Name Validator', () => {
   test('should validate correct animal names', () => {
     expect(validateAnimalName('Leo')).toBe(true);
@@ -475,21 +363,14 @@ describe('Animal Name Validator', () => {
   test('should reject invalid names', () => {
     expect(validateAnimalName('123')).toBe(false);
   });
-
-  test('should reject names with special characters', () => {
-    expect(validateAnimalName('Leo@#$')).toBe(false);
-  });
 });
 ```
 
-### Pruebas de Integración con Supertest
+### Ejemplo de Test de Integración
 
 ```javascript
-const request = require('supertest');
-const app = require('../app');
-
 describe('Animals API', () => {
-  test('GET /animales should return status 200', async () => {
+  test('GET /animales should return 200', async () => {
     const response = await request(app)
       .get('/animales')
       .expect(200);
@@ -497,25 +378,32 @@ describe('Animals API', () => {
     expect(response.body.status).toBe('success');
   });
 
-  test('POST /animales should create new animal', async () => {
+  test('POST /animales should create animal', async () => {
     const response = await request(app)
       .post('/animales')
       .send({
-        nombre: 'Nuevo Animal',
+        nombre: 'Nuevo',
         especie: 'Leopardo',
         edad: 3,
         habitat_id: 1
       })
       .expect(201);
-    
-    expect(response.body.data.id).toBeDefined();
   });
 });
 ```
 
----
+## 🏗️ Scripts Disponibles
 
-## 🐳 Docker
+```bash
+npm start              # Inicia servidor en puerto 8080
+npm test               # Ejecuta todos los tests
+npm run test:unit      # Solo tests unitarios con cobertura
+npm run test:watch     # Tests en modo vigilancia (watch)
+npm run test:coverage  # Reporte completo de cobertura
+npm run test:integration # Tests de integración
+```
+
+## 🐳 Docker & Composición
 
 ### Levantar Entorno Completo
 
@@ -524,10 +412,10 @@ docker-compose -f docker-compose.dev.yaml up -d
 ```
 
 Esto inicia:
-- Servidor Node.js en puerto 8080
-- Base de datos MySQL en puerto 3306
+- 🏗️ **API**: Servidor Node.js en puerto 8080
+- 🗄️ **DB**: MySQL 8.0 en puerto 3306
 
-### Ver Logs
+### Ver Logs en Tiempo Real
 
 ```bash
 docker-compose -f docker-compose.dev.yaml logs -f
@@ -539,87 +427,24 @@ docker-compose -f docker-compose.dev.yaml logs -f
 docker-compose -f docker-compose.dev.yaml down
 ```
 
-### Archivo docker-compose.dev.yaml
+### Reconstruir Imagen (después de cambios)
 
-```yaml
-version: '3.8'
-services:
-  db:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: faunapark
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-  
-  api:
-    build: .
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
-    environment:
-      DB_HOST: db
-      DB_USER: root
-      DB_PASSWORD: root
-      DB_NAME: faunapark
+```bash
+docker-compose -f docker-compose.dev.yaml up --build
 ```
 
----
+## ⚙️ Configuración Avanzada
 
-## 🔐 Manejo de Errores
-
-El sistema implementa manejo centralizado de errores:
+### Pool de Conexiones Base de Datos
 
 ```javascript
-// errorHandler.js
-app.use((error, req, res, next) => {
-  const status = error.status || 500;
-  const message = error.message || 'Error interno del servidor';
-  
-  res.status(status).json({
-    status: 'error',
-    message,
-    ...(process.env.NODE_ENV === 'development' && { stack: error.stack })
-  });
-});
-```
-
-### Respuestas de Error Comunes
-
-| Código | Significado | Ejemplo |
-|--------|------------|---------|
-| **400** | Bad Request | Validación fallida |
-| **404** | Not Found | Recurso no existe |
-| **500** | Server Error | Error inesperado |
-
-```json
-{
-  "status": "error",
-  "message": "El campo 'nombre' es requerido",
-  "details": ["nombre es obligatorio"]
+pool: { 
+  min: 2,      // Conexiones mínimas
+  max: 10      // Conexiones máximas
 }
 ```
 
----
-
-## 📈 Performance y Optimización
-
-### Conexión a Base de Datos con Pool
-
-```javascript
-const pool = knex({
-  client: 'mysql2',
-  connection: {
-    // ...
-  },
-  pool: { min: 2, max: 10 }
-});
-```
-
-### Índices Recomendados
+### Índices Recomendados SQL
 
 ```sql
 CREATE INDEX idx_animals_species ON animales(especie);
@@ -628,70 +453,79 @@ CREATE INDEX idx_animals_status ON animales(estado);
 CREATE INDEX idx_habitats_type ON habitats(tipo);
 ```
 
----
+### Manejo de Errores
 
-## 🚀 Scripts Disponibles
+El sistema implementa manejo centralizado:
 
-| Script | Comando | Descripción |
-|--------|---------|-------------|
-| Start | `npm start` | Inicia servidor en puerto 8080 |
-| Test | `npm test` | Ejecuta todos los tests |
-| Test Unit | `npm run test:unit` | Solo tests unitarios |
-| Test Watch | `npm run test:watch` | Modo vigilancia |
-| Coverage | `npm run test:coverage` | Reporte de cobertura |
-| Integration | `npm run test:integration` | Tests de integración |
+| Código | Significado | Ejemplo |
+|--------|------------|---------|
+| **200** | OK | Solicitud exitosa |
+| **201** | Created | Recurso creado |
+| **400** | Bad Request | Validación fallida |
+| **404** | Not Found | Recurso no existe |
+| **500** | Server Error | Error inesperado |
 
-
----
+**Formato de Error:**
+```json
+{
+  "status": "error",
+  "message": "El campo 'nombre' es requerido",
+  "details": ["nombre es obligatorio"]
+}
+```
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Este proyecto está bajo la Licencia **MIT**. Consulta el archivo `LICENSE` para más detalles.
 
 ---
 
-## 📧 Contacto y Soporte
-
-- **Issues**: [GitHub Issues](https://github.com/tuusuario/faunapark-api/issues)
-- **Email**: support@faunapark.com
-- **Documentación**: [Wiki](https://github.com/tuusuario/faunapark-api/wiki)
-
----
-
-## 🎯 Hoja de Ruta
-
-- [ ] Autenticación JWT
-- [ ] Sistema de roles y permisos
-- [ ] Reportes avanzados
-- [ ] Integración de cámara en vivo
-- [ ] Sistema de alertas
-- [ ] Dashboard administrativo
-- [ ] API GraphQL
-
----
-
-## 👥 Creadores del Proyecto
-
-FaunaPark API fue creado con pasión por dos desarrolladores dedicados que forman la asociación.
+## 👥 Autores
 
 <div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/MT22HUGO">
+          <img src="https://github.com/MT22HUGO.png" width="100px;" alt="Hugo"/><br />
+          <sub><b>Hugo</b></sub>
+        </a>
+        <br />
+        <p><strong>Full Stack Developer</strong></p>
+      </td>
+      <td align="center">
+        <a href="https://github.com/Javiii3r">
+          <img src="https://github.com/Javiii3r.png" width="100px;" alt="Javi"/><br />
+          <sub><b>Javi</b></sub>
+        </a>
+        <br />
+        <p><strong>Full Stack Developer</strong></p>
+      </td>
+    </tr>
+  </table>
+</div>
 
-### Nuestro Equipo
+## 🏆 Créditos y Agradecimientos
 
-| | **Hugo** | **Javi** |
-|:---:|:---:|:---:|
-| **Perfil** | [![Hugo Avatar](https://avatars.githubusercontent.com/u/MT22HUGO?v=4&s=150)](https://github.com/MT22HUGO) | [![Javi Avatar](https://avatars.githubusercontent.com/u/Javiii3r?v=4&s=150)](https://github.com/Javiii3r) |
-| **GitHub** | [@MT22HUGO](https://github.com/MT22HUGO) | [@Javiii3r](https://github.com/Javiii3r) |
-| **Rol** | Full Stack Developer | Full Stack Developer |
-
+<div align="center">
+  <p>Este proyecto fue desarrollado con dedicación por en equipo de FaunaPark.</p>
+  
+  **Desarrollado con ❤️ para la gestión de zoológicos**
+  
+  ---
+  
+  Agradecemos a:
+  - **The Node.js & Express Community** por herramientas excelentes
+  - **Knex.js** por proporcionar un query builder robusto
+  - **Jest & Supertest** por facilitarnos testing completo
+  - **Docker** por simplificar el despliegue
+  
 </div>
 
 ---
 
 <div align="center">
-
-**Hecho con ❤️ por el equipo de FaunaPark**
-
-[⬆ Volver al inicio](#-faunapark-api)
-
+  
+  [⬆ Volver al inicio](#-faunapark-api)
+  
 </div>
