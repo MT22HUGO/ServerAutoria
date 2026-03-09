@@ -487,7 +487,7 @@ Este proyecto está bajo la Licencia **MIT**. Consulta el archivo `LICENSE` para
     <tr>
       <td align="center">
         <a href="https://github.com/MT22HUGO">
-          <img src="https://github.com/MT22HUGO.png" width="100px;" alt="Hugo"/><br />
+          <img src="https://avatars.githubusercontent.com/u/232877974?v=4" width="100px;" alt="Hugo"/><br />
           <sub><b>Hugo</b></sub>
         </a>
         <br />
@@ -495,7 +495,7 @@ Este proyecto está bajo la Licencia **MIT**. Consulta el archivo `LICENSE` para
       </td>
       <td align="center">
         <a href="https://github.com/Javiii3r">
-          <img src="https://github.com/Javiii3r.png" width="100px;" alt="Javi"/><br />
+          <img src="https://avatars.githubusercontent.com/u/232877625?v=4" width="100px;" alt="Javi"/><br />
           <sub><b>Javi</b></sub>
         </a>
         <br />
