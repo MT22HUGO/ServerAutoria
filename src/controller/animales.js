@@ -49,7 +49,7 @@ const getAnimal = async (req, res) => {
 // Valida que el habitat_id sea válido si se proporciona.
 
 const postAnimal = async (req, res) => {
-    const { nombre, especie, categoria, edad, estado_salud, descripcion, imagen_url, habitat_id } = req.body;
+    const { nombre, especie, categoria, edad, peso, estado_salud, descripcion, imagen_url, habitat_id } = req.body;
 
     // Evita duplicados por nombre
     if (await animalExistsByName(nombre)) {
@@ -74,6 +74,7 @@ const postAnimal = async (req, res) => {
         especie, 
         categoria, 
         edad, 
+        peso,
         estado_salud || 'Saludable',
         descripcion, 
         imagen_url, 
@@ -99,7 +100,7 @@ const putAnimal = async (req, res) => {
         });
     }
 
-    const { nombre, especie, categoria, edad, estado_salud, descripcion, imagen_url, habitat_id } = req.body;
+    const { nombre, especie, categoria, edad, peso, estado_salud, descripcion, imagen_url, habitat_id } = req.body;
 
     // 2. Validar que el nombre sea único (si se intenta cambiar)
     if (nombre) {
@@ -122,7 +123,7 @@ const putAnimal = async (req, res) => {
         });
     }
 
-    await modifyAnimal(id, nombre, especie, categoria, edad, estado_salud, descripcion, imagen_url, habitat_id);
+    await modifyAnimal(id, nombre, especie, categoria, edad, peso, estado_salud, descripcion, imagen_url, habitat_id);
     res.status(204).end();
 };
 
