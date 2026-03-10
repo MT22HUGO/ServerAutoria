@@ -48,12 +48,13 @@ const animalExistsByName = async (nombre) => {
 };
 
 // Inserta un nuevo animal en la BD y retorna el registro creado
-const addAnimal = async (nombre, especie, categoria, edad, estado_salud, descripcion, imagen_url, habitat_id) => {
+const addAnimal = async (nombre, especie, categoria, edad, peso, estado_salud, descripcion, imagen_url, habitat_id) => {
     const [id] = await db('animales').insert({
         nombre,
         especie,
         categoria,
         edad,
+        peso,
         estado_salud,
         descripcion,
         imagen_url,
@@ -64,12 +65,13 @@ const addAnimal = async (nombre, especie, categoria, edad, estado_salud, descrip
 };
 
 // Actualiza datos de un animal existente
-const modifyAnimal = async (id, nombre, especie, categoria, edad, estado_salud, descripcion, imagen_url, habitat_id) => {
+const modifyAnimal = async (id, nombre, especie, categoria, edad, peso, estado_salud, descripcion, imagen_url, habitat_id) => {
     await db('animales').where({ id }).update({
         nombre,
         especie,
         categoria,
         edad,
+        peso,
         estado_salud,
         descripcion,
         imagen_url,

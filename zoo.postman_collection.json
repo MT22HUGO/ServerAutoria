@@ -77,7 +77,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"nombre\": \"Dumbo\",\n    \"especie\": \"Elefante africano\",\n    \"categoria\": \"Mamífero\",\n    \"edad\": 12,\n    \"estado_salud\": \"Saludable\",\n    \"descripcion\": \"Elefante africano macho de gran tamaño\",\n    \"imagen_url\": \"https://example.com/elefante.jpg\",\n    \"habitat_id\": 1\n}",
+              "raw": "{\n    \"nombre\": \"Dumbo\",\n    \"especie\": \"Elefante africano\",\n    \"categoria\": \"Mamífero\",\n    \"edad\": 12,\n    \"peso\": 5400.00,\n    \"estado_salud\": \"Saludable\",\n    \"descripcion\": \"Elefante africano macho de gran tamaño\",\n    \"imagen_url\": \"https://example.com/elefante.jpg\",\n    \"habitat_id\": 1\n}",
               "options": { "raw": { "language": "json" } }
             },
             "url": "http://localhost:8080/animales"
@@ -108,7 +108,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"nombre\": \"Simba Rey\",\n    \"especie\": \"León africano\",\n    \"categoria\": \"Mamífero\",\n    \"edad\": 6,\n    \"habitat_id\": 1\n}",
+              "raw": "{\n    \"nombre\": \"Simba Rey\",\n    \"especie\": \"León africano\",\n    \"categoria\": \"Mamífero\",\n    \"edad\": 6,\n    \"peso\": 205.30,\n    \"habitat_id\": 1\n}",
               "options": { "raw": { "language": "json" } }
             },
             "url": "http://localhost:8080/animales/1"

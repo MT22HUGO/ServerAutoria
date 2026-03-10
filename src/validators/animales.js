@@ -21,6 +21,11 @@ const validateAnimal = [
         .optional()
         .isIn(['Saludable', 'Requiere atención'])
         .withMessage('Estado de salud no válido'),
+
+    check('peso')
+        .optional()
+        .isFloat({ gt: 0 })
+        .withMessage('peso debe ser un número mayor a 0'),
     
     check('habitat_id')
         .optional()
